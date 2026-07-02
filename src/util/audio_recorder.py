@@ -3,6 +3,7 @@
 import wave
 import sys
 import pyaudio
+import threading, time
 
 class AudioRecorder:
     CHUNK = 1024
@@ -29,4 +30,9 @@ class AudioRecorder:
             print('Done')
 
             stream.close()
+
             p.terminate()
+
+    def record_live_data(self):
+        recThread = threading.Thread(target=self.recordAudio)
+        recThread.start()
