@@ -1,14 +1,20 @@
 from util.audio_recorder import AudioRecorder
 from util.audio_visualizer import AudioVisualizer
+from gui.sound_display import WaveformDisplay
 
 import time
 
 def main():
     audioRecorder = AudioRecorder()
-    audioRecorder.recordAudio()
+    #audioRecorder.recordAudio()
 
     audioVisualizer = AudioVisualizer()
-    audioVisualizer.visualize()
+    #audioVisualizer.visualize()
+
+    # Try the gui
+    waveformDisplay = WaveformDisplay()
+    audioRecorder.startAudioStream()
+    audioRecorder.streamToGUI(waveformDisplay)
 
 
 
